@@ -12,11 +12,14 @@
             padding: 0;
             display: flex;
             justify-content: center;
-            align-items: center;
-            height: 100vh;
+            align-items: flex-start;
+            min-height: 100vh;
             color: #333;
         }
         .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
             text-align: center;
             background-color: #fff;
             padding: 20px 40px;
@@ -25,9 +28,11 @@
         }
         h1 {
             color: #8e44ad;
+            margin-bottom: 20px;
         }
         h2 {
             color: #2980b9;
+            margin-bottom: 10px;
         }
         a {
             color: #3498db;
@@ -36,12 +41,41 @@
         a:hover {
             text-decoration: underline;
         }
+        .posts {
+            margin-top: 30px;
+            text-align: left;
+        }
+        .post {
+            background-color: #f9f9f9;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .post h2 {
+            color: #34495e;
+            margin-top: 0;
+        }
+        .post p {
+            color: #555;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>I'm 28 years old!</h1>
         <h2>Go back to home page <a href="/">here!</a></h2>
+        
+        <div class="posts">
+            <h1>Posts</h1>
+            {% for post in posts %}
+                <article class="post">
+                    <h2>{{ post.title }}</h2>
+                    <p> {{ post.created_at }} </p>
+                    <p>{{ post.content }}</p>
+                </article>
+            {% endfor %}
+        </div>
     </div>
 </body>
 </html>
