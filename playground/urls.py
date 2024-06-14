@@ -10,5 +10,9 @@ app_name = 'playground'
 urlpatterns = [
     path('', views.show_my_name, name="posts_list"),
     # slug (after :) is a parameter that we pass to the view 
-    path('<slug:slug>', views.show_my_post, name="post_detail")
+    path('<slug:slug>', views.show_my_post, name="post_detail"),
+    # url that will return a json response
+    path('api/posts', views.get_posts, name="get_posts"),
+    # I'm passing a parameter within the url
+    path('api/posts/<int:id>', views.get_post, name="get_post"),
 ]
