@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sessions',
     "debug_toolbar",
-    'playground',
+    "playground",
+    "users",
 ]
 
 MIDDLEWARE = [

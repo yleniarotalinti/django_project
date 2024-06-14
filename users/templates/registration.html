@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        input, select, textarea {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            background-color: #3498db;
+            color: #fff;
+            cursor: pointer;
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .back-button {
+            background-color: #95a5a6;
+        }
+        .back-button:hover {
+            background-color: #7f8c8d;
+        }
+        .errorlist {
+            color: #e74c3c;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Registration</h1>
+        <!-- This form will be submitted to the specified action URL -->
+        <form action="/users/registration" method="POST">
+            <!-- This is a security feature to prevent Cross-Site Request Forgery (CSRF) attacks -->
+            {% csrf_token %}
+            <!-- Render Django form fields -->
+            {{ form.as_p }}
+            <!-- Submit button -->
+            <button type="submit">Register</button>
+        </form>
+        <!-- Back to Home button -->
+        <a href="/" class="back-button">
+            <button type="button" class="back-button">Back to Home</button>
+        </a>
+    </div>
+</body>
+</html>

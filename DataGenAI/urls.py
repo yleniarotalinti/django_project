@@ -22,5 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.say_hello),
     path("__debug__/", include("debug_toolbar.urls")),
-    path('playground/', include('playground.urls'))
+    path('playground/', include('playground.urls')),
+    path('users/', include('users.urls'))
 ]
