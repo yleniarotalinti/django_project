@@ -13,6 +13,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             color: #333;
         }
@@ -22,12 +23,15 @@
             padding: 20px 40px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
         }
         h1 {
             color: #2c3e50;
+            margin-bottom: 20px;
         }
         h2 {
             color: #34495e;
+            margin-bottom: 20px;
         }
         a {
             color: #3498db;
@@ -36,12 +40,31 @@
         a:hover {
             text-decoration: underline;
         }
+        .links {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .links a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border: 1px solid #3498db;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .links a:hover {
+            background-color: #3498db;
+            color: #fff;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Home page!</h1>
-        <h2>Check out {{ name }}'s about page <a href="/playground/">here!</a></h2>
+        <h1>Home Page!</h1>
+        <h2>Check out {{ name }}'s about page <a href="{% url 'playground:posts_list' %}">here!</a></h2>
+    </div>
+    <div class="links"> 
+        <a href="{% url 'users:users_registration' %}">Register here!</a>
     </div>
 </body>
 </html>

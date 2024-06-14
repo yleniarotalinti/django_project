@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ post.title }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            color: #333;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px;
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #34495e;
+            margin-bottom: 20px;
+        }
+        .content {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .created_at {
+            color: #999;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ post.title }}</h1>
+        <div class="content">{{ post.content }}</div>
+        <div class="created_at">Posted on {{ post.created_at|date:"F j, Y, g:i a" }}</div>
+        <a href="{% url 'playground:posts_list' %}" >← Back to previous page</a>
+    </div> 
+</body>
+</html>
